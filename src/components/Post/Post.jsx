@@ -1,8 +1,8 @@
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
-import { Avatar } from './Avatar'
-import { Comment } from './Comment'
+import { Avatar } from '../Avatar/Avatar'
+import { Comment } from '../Comment/Comment'
 
 import styles from './Post.module.css'
 
