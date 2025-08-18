@@ -31,10 +31,10 @@
 .post > header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-.post>header time {
+.post > header time {
     font-size: 0.875rem;
     color: var(--gray-400);
 }
