@@ -18,9 +18,9 @@ export function Post({ author, content, publishedAt }) {
     // }).format(publishedAt);
 
     const [comments, setComments] = useState([
-    'Post muito bacana, hein ?!'
-]);
-   
+        'Post muito bacana, hein ?!'
+    ]);
+
     const [newCommentText, setNewCommentText] = useState('')
 
     const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR });
@@ -37,6 +37,10 @@ export function Post({ author, content, publishedAt }) {
 
     function handleNewCommentChange() {
         setNewCommentText(event.target.value);
+    }
+
+    function deleteComment(comment) {
+
     }
 
     return (
@@ -75,7 +79,13 @@ export function Post({ author, content, publishedAt }) {
 
             <div className={styles.commentList}>
                 {comments.map(comment => {
-                    return <Comment key={comment} content={comment} />
+                    return (
+                        <Comment
+                            key={comment}
+                            content={comment}
+                            onDeleteComment={deleteComment}
+                        />
+                    )
                 })}
             </div>
         </article>
