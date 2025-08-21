@@ -1,4 +1,4 @@
-import { Avatar } from './Avatar/Avatar'
+import { Avatar } from '../Avatar/Avatar'
 import styles from './Sidebar.module.css'
 
 export function Sidebar() {

@@ -5,19 +5,32 @@ import { Avatar } from '../Avatar/Avatar'
 import { Comment } from '../Comment/Comment'
 
 import styles from './Post.module.css'
+import { useState } from 'react'
+
 
 export function Post({ author, content, publishedAt }) {
 
-// const publishedDateFormatted = new Intl.DateTimeFormat('pt-BR', {
-//     day: '2-digit',
-//     month: 'long',
-//     hour: '2-digit',
-//     minute: '2-digit'
-// }).format(publishedAt);
+    // const publishedDateFormatted = new Intl.DateTimeFormat('pt-BR', {
+    //     day: '2-digit',
+    //     month: 'long',
+    //     hour: '2-digit',
+    //     minute: '2-digit'
+    // }).format(publishedAt);
 
-const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {locale: ptBR});
+    const [comments, setComments] = useState([
+    1,
+    2,
+    3
+])
 
-const publishedDateRelativeNow = formatDistanceToNow(publishedAt, {locale: ptBR, addSuffix: true});
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", { locale: ptBR });
+
+    const publishedDateRelativeNow = formatDistanceToNow(publishedAt, { locale: ptBR, addSuffix: true });
+
+    function handleCreateNewComment() {
+        event.preventDefault();
+        setComments([...comments, comments.length]);
+    }
 
     return (
         <article className={styles.post}>
@@ -35,15 +48,15 @@ const publishedDateRelativeNow = formatDistanceToNow(publishedAt, {locale: ptBR,
 
             <div className={styles.content}>
                 {content.map(line => {
-                    if(line.type == 'paragraph'){
+                    if (line.type == 'paragraph') {
                         return <p>{line.content}</p>
-                    } else if(line.type == 'link') {
+                    } else if (line.type == 'link') {
                         return <p><a href="">{line.content}</a></p>
                     }
                 })}
             </div>
 
-            <form className={styles.commentForm}>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
                 <strong>Deixe seu feedback</strong>
 
                 <textarea placeholder='Deixe um comentário' />
@@ -54,9 +67,9 @@ const publishedDateRelativeNow = formatDistanceToNow(publishedAt, {locale: ptBR,
             </form>
 
             <div className={styles.commentList}>
-                <Comment />
-                <Comment />
-                <Comment />
+                {comments.map(comment => {
+                    return <Comment />
+                })}
             </div>
         </article>
     )

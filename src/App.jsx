@@ -2,13 +2,13 @@ import { Header } from './components/Header/Header'
 import './global.css'
 import styles from './App.module.css'
 import { Post } from './components/Post/Post'
-import { Sidebar } from './components/Sidebar'
+import { Sidebar } from './components/Sidebar/Sidebar'
 
 const posts = [
   {
     id: 1,
     author: {
-      avatarUrl: `https://plus.unsplash.com/premium_photo-1689568126014-06fea9d5d341?q=50&w=500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
+      avatarUrl: "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=300&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       name: 'Jairo Doni',
       role: 'Desenvolvedor Frontend'
     },
